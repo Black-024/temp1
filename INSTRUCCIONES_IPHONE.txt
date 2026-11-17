@@ -1,0 +1,52 @@
+TALLY MONITOR PARA IPHONE - ETAPA 1 (probar que compila, instala y abre)
+=========================================================================
+Esta etapa NO tiene todavía pantallas de encuestas. Solo comprueba tres cosas:
+  1) que la app se compila en la nube (GitHub Actions, en una Mac virtual),
+  2) que se instala en el iPhone de tu amigo,
+  3) que abre, muestra el logo y las pruebas internas del núcleo dicen OK.
+Si esto anda, sigo con el resto (API, sincronización, base de datos, exportación y pantallas).
+
+PARTE A - SUBIR A GITHUB Y COMPILAR
+-----------------------------------
+1. Creá un repositorio NUEVO en github.com (botón "New"), por ejemplo "Tally-Monitor-iOS".
+   Puede ser privado. Ojo: en privado, las Macs virtuales gastan los minutos gratis 10 veces más rápido
+   (unos 200 minutos reales por mes; una compilación tarda 5-10 min). En público es gratis y no tiene límite.
+   Este código no contiene claves ni datos tuyos.
+2. Descomprimí Tally-Monitor-iPhone.zip. Adentro queda la carpeta "tally-monitor-ios".
+3. En PowerShell:
+     cd "RUTA\tally-monitor-ios"
+     git init
+     git add .
+     git commit -m "Tally Monitor iPhone etapa 1"
+     git branch -M main
+     git remote add origin https://github.com/Black-024/Tally-Monitor-iOS.git
+     git push -u origin main
+   (cambiá la URL por la de tu repo nuevo; Git te pide el login de GitHub en el navegador; no me pases tokens)
+4. En GitHub, pestaña "Actions": se arranca solo "iOS". Esperá a que termine (5-10 min).
+5. Cuando termine con tilde verde, entrá a esa ejecución y bajá, en "Artifacts", el archivo
+   "TallyMonitor-ipa" (es un .zip que contiene TallyMonitor-unsigned.ipa).
+6. Si falla (X roja): bajá el artifact "logs" (contiene build.log y test.log) y mandame las líneas con
+   "error:" o "failed". Para sacarlas:  Select-String -Path build.log -Pattern "error:" -Context 0,3
+   y     Select-String -Path test.log -Pattern "error|failed" -Context 0,3
+   (revisá antes que no haya ninguna API Key; no debería, en esta etapa no se usa ninguna.)
+
+PARTE B - INSTALAR EN EL IPHONE (desde tu PC con Windows, con Sideloadly)
+-------------------------------------------------------------------------
+Se necesita un Apple ID (el de tu amigo o uno gratuito nuevo; no hace falta pagar). Limitaciones del Apple ID gratis:
+la app CADUCA A LOS 7 DÍAS (hay que reinstalarla) y se permiten 3 apps instaladas así.
+1. En tu PC instalá iTunes y iCloud desde apple.com (las versiones de la web de Apple, NO las de Microsoft Store).
+2. Instalá Sideloadly (sideloadly.io).
+3. Conectá el iPhone a la PC por cable, desbloqueado, y tocá "Confiar en esta computadora".
+4. Abrí Sideloadly: arrastrá el archivo TallyMonitor-unsigned.ipa, escribí el Apple ID y tocá "Start".
+   Si el Apple ID tiene verificación en dos pasos, conviene crear una contraseña específica de app en appleid.apple.com
+   y usar esa. La contraseña del Apple ID se la escribe quien es dueño de la cuenta, no se comparte conmigo.
+5. En el iPhone: Ajustes > General > VPN y administración de dispositivos > tocá el Apple ID > "Confiar".
+6. En iOS 16 o superior: Ajustes > Privacidad y seguridad > Modo de desarrollador > activar (reinicia el iPhone).
+7. Abrí "Tally Monitor". Tiene que verse el logo y cuatro líneas "OK" en verde.
+
+QUÉ ME TENÉS QUE CONTAR
+-----------------------
+- Si compiló (tilde verde) o no, y los errores si falló.
+- Si Sideloadly instaló la app o qué error mostró.
+- Qué modelo de iPhone y versión de iOS tiene tu amigo.
+- Si la app abre y qué se ve (las líneas OK/FALLO).

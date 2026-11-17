@@ -1,0 +1,53 @@
+{
+ "now": "2026-11-10T15:00:00Z",
+ "tz_offset_hours": -3,
+ "cases": [
+  {
+   "kind": "all",
+   "result": {
+    "kind": "all",
+    "start_iso": null,
+    "end_iso": null,
+    "label": "Todo el período"
+   }
+  },
+  {
+   "kind": "24h",
+   "result": {
+    "kind": "24h",
+    "start_iso": "2026-11-09T15:00:00.000Z",
+    "end_iso": "2026-11-10T15:00:01.000Z",
+    "label": "Últimas 24 horas"
+   }
+  },
+  {
+   "kind": "7d",
+   "result": {
+    "kind": "7d",
+    "start_iso": "2026-11-03T15:00:00.000Z",
+    "end_iso": "2026-11-10T15:00:01.000Z",
+    "label": "Últimos 7 días"
+   }
+  },
+  {
+   "kind": "30d",
+   "result": {
+    "kind": "30d",
+    "start_iso": "2026-10-11T15:00:00.000Z",
+    "end_iso": "2026-11-10T15:00:01.000Z",
+    "label": "Últimos 30 días"
+   }
+  },
+  {
+   "kind": "custom",
+   "start": "2026-11-01",
+   "end": "2026-11-03",
+   "result": {
+    "kind": "custom",
+    "start_iso": "2026-11-01T03:00:00.000Z",
+    "end_iso": "2026-11-04T03:00:00.000Z",
+    "label": "Del 01/11/2026 al 03/11/2026"
+   }
+  }
+ ]
+}

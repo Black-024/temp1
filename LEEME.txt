@@ -1,0 +1,2 @@
+Tally Monitor para iPhone (SwiftUI). Etapa 1: proyecto, compilación en la nube y núcleo.
+Ver INSTRUCCIONES_IPHONE.txt para compilar con GitHub Actions e instalar en el iPhone.
